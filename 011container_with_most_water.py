@@ -30,5 +30,4 @@ def get_min(i, j):
         return i
 
 
-arr = [1, 8, 6, 2, 5, 4, 8, 3, 7]
-print(get_water_area(arr))
+print(get_water_area([1, 8, 6, 2, 5, 4, 8, 3, 7]))
