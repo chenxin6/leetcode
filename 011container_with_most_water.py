@@ -11,6 +11,8 @@ def get_water_area(arr):
         else:
             end = end - 1
     return res
+
+
 def get_water_area2(arr):
     res = 0
     for i in range(len(arr)):
@@ -19,11 +21,14 @@ def get_water_area2(arr):
             if temp > res:
                 res = temp
     return res
+
+
 def get_min(i, j):
     if i >= j:
         return j
     else:
         return i
 
-arr = [1,8,6,2,5,4,8,3,7]
+
+arr = [1, 8, 6, 2, 5, 4, 8, 3, 7]
 print(get_water_area(arr))

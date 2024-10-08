@@ -16,6 +16,7 @@ def get_min_jump(arr, index, last_max_reach):
     dp[index] = res
     return res
 
-arr = [2,3,1,1,4]
+
+arr = [2, 3, 1, 1, 4]
 dp = [-1 for _ in range(len(arr))]
 print(get_min_jump(arr, 0, 0))

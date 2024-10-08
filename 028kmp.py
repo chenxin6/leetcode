@@ -17,6 +17,8 @@ def kmp(str1, str2):
             break
         j += 1
     return res
+
+
 def get_next_arr(str1):
     res = [0 for _ in range(len(str1))]
     i = 0
@@ -30,6 +32,7 @@ def get_next_arr(str1):
         j += 1
     return res
 
+
 str1 = "4747479"
-str2 = "47474747474743747474734747s47479272373474747";
+str2 = "47474747474743747474734747s47479272373474747"
 print(kmp(str1, str2))

@@ -20,7 +20,7 @@ class Solution:
             self.adjust(arr, 0, n)
         return root.next
 
-    def myMethod(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+    def myMethod(self, lists: List[Optional[ListNode]]) -> List[Optional[ListNode]]:
         arr = []
         for node in lists:
             arr.append(node)
