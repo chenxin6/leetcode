@@ -8,7 +8,8 @@ def get_unique_binary_search_trees_num(n):
         res += get_unique_binary_search_trees_num(i) * get_unique_binary_search_trees_num(n - 1 - i)
     dp[n] = res
     return res
-    
+
+
 n = 2
 dp = [-1 for _ in range(n + 1)]
 print(get_unique_binary_search_trees_num(n))
