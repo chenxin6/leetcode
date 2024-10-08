@@ -1,0 +1,10 @@
+{
+    "diffEditor.ignoreTrimWhitespace": false,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "python.analysis.extraPaths": ["./"],
+    "python.analysis.typeCheckingMode": "basic",
+    "python.linting.flake8Args": ["--config=.flake8"],
+    "terminal.integrated.inheritEnv": false,
+    "workbench.editor.wrapTabs": true
+}
