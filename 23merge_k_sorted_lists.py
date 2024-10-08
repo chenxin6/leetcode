@@ -1,9 +1,12 @@
-from typing import List,Optional
+from typing import List, Optional
+
 
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
+
+
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         arr = self.myMethod(lists)
@@ -14,9 +17,9 @@ class Solution:
             tempNode.next = ListNode(arr[0].val)
             tempNode = tempNode.next
             arr[0] = arr[0].next
-            self.adjust(arr, 0, n)	
+            self.adjust(arr, 0, n)
         return root.next
-    
+
     def myMethod(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         arr = []
         for node in lists:
@@ -25,7 +28,7 @@ class Solution:
         for i in range(n // 2, n):
             self.adjust(arr, n - i - 1, n)
         return arr
-    
+
     def adjust(self, arr, i, n):
         fatherValue = None
         if arr[i] is not None:
@@ -42,12 +45,15 @@ class Solution:
                 self.swap(arr, i, child)
                 i = child
         arr[i] = fatherValue
+
     def swap(self, arr, i, j):
         temp = arr[i]
         arr[i] = arr[j]
         arr[j] = temp
+
     def getLeftChild(self, i):
         return 2 * i + 1
+
 
 s = Solution()
 a = ListNode(1)

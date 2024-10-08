@@ -1,0 +1,15 @@
+[flake8]
+per-file-ignores =
+    mona/model/dao/*: E221
+    test/**: E402    
+    
+# it's not a bug that we aren't using all of hacking
+ignore = 
+    # H301: one import per line
+    H301,
+    # F403: 'from module import *' used; unable to detect undefined names
+    F403,
+    # F405: Name may be undefined, or defined from star imports: module 
+    F405,
+    # E501: contain line length, function lines
+    E501
