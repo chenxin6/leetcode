@@ -2,4 +2,4 @@
 max-line-length=150
 
 [MESSAGES CONTROL]
-disable=broad-exception-caught,broad-exception-raised,consider-using-enumerate,logging-fstring-interpolation,missing-docstring,missing-function-docstring
+disable=broad-exception-caught,broad-exception-raised,consider-using-enumerate,logging-fstring-interpolation,missing-docstring,missing-function-docstring,redefined-builtin
