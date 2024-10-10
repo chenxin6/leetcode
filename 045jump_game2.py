@@ -1,3 +1,22 @@
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        start = 0
+        end = len(height) - 1
+        res = 0
+        while start < end:
+            temp_res = (end - start) * self.get_min(height[start], height[end])
+            if temp_res > res:
+                res = temp_res
+            if height[start] < height[end]:
+                start = start + 1
+            else:
+                end = end - 1
+        return res
+
+    def get_min(self, a, b) -> int:
+        return a if a <= b else b
+
+
 def get_min_jump(arr, index, last_max_reach):
     if index == len(arr) - 1:
         return 0
