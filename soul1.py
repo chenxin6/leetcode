@@ -2,6 +2,8 @@ class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
+
+
 class Solution:
     # def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
     def deleteDuplicates(self, head):
@@ -32,7 +34,7 @@ class Solution:
         if after_current_node is None and current_root_value is not None:
             pre_current_root_node.next = None
         return pre_head.next
-    
+
 
 A = Solution()
 root = ListNode(1)

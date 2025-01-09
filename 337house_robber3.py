@@ -23,7 +23,11 @@ class Solution:
             return self.db[key]
         res = 0
         if can_rob:
-            res = root.val + self.my_method(root.left, False) + self.my_method(root.right, False)
+            res = (
+                root.val
+                + self.my_method(root.left, False)
+                + self.my_method(root.right, False)
+            )
         temp_res = self.my_method(root.left, True) + self.my_method(root.right, True)
         res = max(res, temp_res)
         self.db[key] = res

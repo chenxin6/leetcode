@@ -5,7 +5,7 @@ class Solution:
     def rob(self, nums: List[int]) -> int:
         db = {}
         db2 = {}
-        res = nums[0] + self.my_method(nums[0: len(nums) - 1], 1, False, db)
+        res = nums[0] + self.my_method(nums[0 : len(nums) - 1], 1, False, db)
         temp_res = self.my_method(nums, 1, True, db2)
         return max(res, temp_res)
 

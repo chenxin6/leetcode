@@ -12,7 +12,7 @@ class Solution:
         last_j = 0
         go_down = False
         go_up = True
-        for i in range(2, n * m + 1):
+        for _ in range(2, n * m + 1):
             # print(mat[last_i][last_j])
             if go_down:
                 if last_i + 1 == n:
@@ -50,8 +50,4 @@ class Solution:
 
 
 s = Solution()
-print(s.findDiagonalOrder([
-    [1, 2, 3, 4],
-    [5, 6, 7, 8],
-    [9, 10, 11, 12]]
-))
+print(s.findDiagonalOrder([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]))

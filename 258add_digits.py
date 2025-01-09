@@ -3,6 +3,7 @@ class Solution:
         while num >= 10:
             num = self.my_method(num)
         return num
+
     def my_method(self, num: int) -> int:
         res = 0
         while num > 0:
@@ -11,6 +12,11 @@ class Solution:
         return res
 
 
-s = Solution()
-res = s.addDigits(44)
-print(res)
+def main():
+    s = Solution()
+    res = s.addDigits(44)
+    print(res)
+
+
+if __name__ == "__main__":
+    main()

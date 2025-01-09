@@ -7,6 +7,8 @@ def quick_sort(arr, left, right):
     pivot = partition(arr, left, right)
     quick_sort(arr, left, pivot - 1)
     quick_sort(arr, pivot + 1, right)
+
+
 def partition(arr, left, right):
     index = (left + right) // 2
     pivot = arr[index]
@@ -21,6 +23,7 @@ def partition(arr, left, right):
     arr[left] = pivot
     return left
 
+
 def merge_sort(arr, left, right):
     if left < 0 or right >= len(arr) or left >= right:
         return
@@ -28,6 +31,8 @@ def merge_sort(arr, left, right):
     merge_sort(arr, left, mid)
     merge_sort(arr, mid + 1, right)
     merge(arr, left, mid, right)
+
+
 def merge(arr, left, mid, right):
     temp = []
     i = left
@@ -45,7 +50,8 @@ def merge(arr, left, mid, right):
     while j <= right:
         temp.append(arr[j])
         j += 1
-    arr[left: right + 1] = temp
+    arr[left : right + 1] = temp
+
 
 def heap_sort(arr):
     n = len(arr)
@@ -54,6 +60,8 @@ def heap_sort(arr):
     for i in range(n):
         swap(arr, 0, n - 1 - i)
         heap_adjust(arr, 0, n - 1 - i)
+
+
 def heap_adjust(arr, i, n):
     father_value = arr[i]
     while left_child(i) < n:
@@ -66,22 +74,28 @@ def heap_adjust(arr, i, n):
             arr[i] = arr[child_index]
         i = child_index
     arr[i] = father_value
+
+
 def left_child(i):
     return 2 * i + 1
+
+
 def swap(arr, i, j):
     temp = arr[i]
     arr[i] = arr[j]
     arr[j] = temp
 
+
 def bucket_sort(arr):
     temp = [0 for _ in range(100001)]
     for value in arr:
-        index = value + 50000;
+        index = value + 50000
         temp[index] = temp[index] + 1
     res = []
     for i in range(100001):
         res = res + [i - 50000 for _ in range(temp[i])]
     return res
+
 
 def insert_sort(arr):
     for i in range(1, len(arr)):
@@ -91,6 +105,8 @@ def insert_sort(arr):
             arr[j + 1] = arr[j]
             j -= 1
         arr[j + 1] = temp
+
+
 def select_sort(arr):
     for i in range(len(arr)):
         index = i
@@ -100,6 +116,8 @@ def select_sort(arr):
         temp = arr[index]
         arr[index] = arr[i]
         arr[i] = temp
+
+
 def bubble_sort(arr):
     for i in range(len(arr)):
         for j in range(len(arr) - i - 1):
@@ -108,15 +126,21 @@ def bubble_sort(arr):
                 arr[j] = arr[j + 1]
                 arr[j + 1] = temp
 
-arr = [10, 7, 8, 9, 1, 5, 7, 7, 7] 
-n = len(arr) 
-# quick_sort(arr, 0, n - 1)
-# merge_sort(arr, 0, n - 1)
-heap_sort(arr)
-# arr = bucket_sort(arr)
-# insert_sort(arr)
-# select_sort(arr)
-# bubble_sort(arr)
-print ("Sorted Array:") 
-for i in range(n): 
-    print ("%d" %arr[i])
+
+def main():
+    arr = [10, 7, 8, 9, 1, 5, 7, 7, 7]
+    n = len(arr)
+    # quick_sort(arr, 0, n - 1)
+    # merge_sort(arr, 0, n - 1)
+    heap_sort(arr)
+    # arr = bucket_sort(arr)
+    # insert_sort(arr)
+    # select_sort(arr)
+    # bubble_sort(arr)
+    print("Sorted Array:")
+    for i in range(n):
+        print("%d" % arr[i])
+
+
+if __name__ == "__main__":
+    main()

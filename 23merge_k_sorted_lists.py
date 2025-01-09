@@ -35,9 +35,16 @@ class Solution:
             father_value = arr[i]
         while self.get_left_child(i) < n:
             child = self.get_left_child(i)
-            if child + 1 < n and (arr[child] is None or (arr[child + 1] is not None and arr[child].val > arr[child + 1].val)):
+            if child + 1 < n and (
+                arr[child] is None
+                or (arr[child + 1] is not None and arr[child].val > arr[child + 1].val)
+            ):
                 child += 1
-            if father_value is not None and arr[child] is not None and father_value.val <= arr[child].val:
+            if (
+                father_value is not None
+                and arr[child] is not None
+                and father_value.val <= arr[child].val
+            ):
                 break
             elif arr[child] is None:
                 break

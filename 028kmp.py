@@ -33,6 +33,11 @@ def get_next_arr(str1):
     return res
 
 
-str1 = "4747479"
-str2 = "47474747474743747474734747s47479272373474747"
-print(kmp(str1, str2))
+def main():
+    str1 = "4747479"
+    str2 = "47474747474743747474734747s47479272373474747"
+    print(kmp(str1, str2))
+
+
+if __name__ == "__main__":
+    main()

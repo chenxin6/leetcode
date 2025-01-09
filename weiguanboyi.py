@@ -2,13 +2,13 @@ import sys
 
 
 def is_merged_string(s):
-    if s[0] != '<' or s[len(s) - 1] != '>':
+    if s[0] != "<" or s[len(s) - 1] != ">":
         return False
     stack = []
     for char in s:
-        if char == '<':
+        if char == "<":
             stack.append(char)
-        elif char == '>':
+        elif char == ">":
             if not stack:
                 return False
             stack.pop()

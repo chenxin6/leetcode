@@ -1,5 +1,6 @@
 from typing import List
 
+
 class Solution:
     def hIndex(self, citations: List[int]) -> int:
         self.merge_sort(citations, 0, len(citations) - 1)
@@ -10,6 +11,7 @@ class Solution:
             if value >= n:
                 res = n
         return res
+
     def merge_sort(self, citations: List[int], left: int, right: int):
         if left >= right:
             return citations
@@ -17,6 +19,7 @@ class Solution:
         self.merge_sort(citations, left, mid)
         self.merge_sort(citations, mid + 1, right)
         self.merge(citations, left, mid, right)
+
     def merge(self, citations: List[int], left: int, mid: int, right: int):
         i = left
         j = mid + 1
@@ -34,9 +37,14 @@ class Solution:
         while j <= right:
             temp_res.append(citations[j])
             j += 1
-        citations[left: right + 1] = temp_res
+        citations[left : right + 1] = temp_res
 
 
-s = Solution()
-res = s.hIndex([3,0,6,1,5])
-print(res)
+def main():
+    s = Solution()
+    res = s.hIndex([3, 0, 6, 1, 5])
+    print(res)
+
+
+if __name__ == "__main__":
+    main()

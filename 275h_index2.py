@@ -1,5 +1,6 @@
 from typing import List
 
+
 class Solution:
     def hIndex(self, citations: List[int]) -> int:
         left = 0
@@ -14,6 +15,7 @@ class Solution:
             else:
                 right = mid
         return left
+
     def is_ok(self, citations: List[int], n: int) -> bool:
         if n < 0 or n > len(citations):
             return False
@@ -25,5 +27,5 @@ class Solution:
 
 
 s = Solution()
-res = s.hIndex([0,1,3,5,6])
+res = s.hIndex([0, 1, 3, 5, 6])
 print(res)

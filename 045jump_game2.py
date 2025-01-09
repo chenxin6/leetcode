@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def maxArea(self, height: List[int]) -> int:
         start = 0
@@ -17,7 +20,7 @@ class Solution:
         return a if a <= b else b
 
 
-def get_min_jump(arr, index, last_max_reach):
+def get_min_jump(dp, arr, index, last_max_reach):
     if index == len(arr) - 1:
         return 0
     if arr[index] + index >= len(arr) - 1:
@@ -29,13 +32,18 @@ def get_min_jump(arr, index, last_max_reach):
     res = 10001
     max_reach = index + arr[index]
     for i in range(last_max_reach + 1 - index, arr[index] + 1):
-        temp = 1 + get_min_jump(arr, index + i, max_reach)
+        temp = 1 + get_min_jump(dp, arr, index + i, max_reach)
         if temp < res:
             res = temp
     dp[index] = res
     return res
 
 
-arr = [2, 3, 1, 1, 4]
-dp = [-1 for _ in range(len(arr))]
-print(get_min_jump(arr, 0, 0))
+def main():
+    arr = [2, 3, 1, 1, 4]
+    dp = [-1 for _ in range(len(arr))]
+    print(get_min_jump(dp, arr, 0, 0))
+
+
+if __name__ == "__main__":
+    main()
