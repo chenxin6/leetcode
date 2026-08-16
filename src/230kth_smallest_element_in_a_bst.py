@@ -23,7 +23,7 @@ class Solution:
             temp_value = l.pop(0)
             if temp_value is None:
                 continue
-            if type(temp_value) is TreeNode:
+            if isinstance(temp_value, TreeNode):
                 l.insert(0, temp_value.right)
                 l.insert(0, temp_value.val)
                 l.insert(0, temp_value.left)

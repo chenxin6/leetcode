@@ -17,10 +17,21 @@ class Solution:
             item = item_list.pop(0)
             if item is None:
                 continue
-            if type(item) is TreeNode:
+            if isinstance(item, TreeNode):
                 item_list.insert(0, item.right)
                 item_list.insert(0, item.val)
                 item_list.insert(0, item.left)
             else:
                 res.append(item)
         return res
+
+    def inorderTraversal2(self, root: Optional[TreeNode]) -> List[int]:
+        if root is None:
+            return []
+        if root.left is None and root.right is None:
+            return [root.val]
+        return (
+            self.inorderTraversal2(root.left)
+            + [root.val]
+            + self.inorderTraversal2(root.right)
+        )
