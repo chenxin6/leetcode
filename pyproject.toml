@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "leetcode"
+version = "0.0.0"
+description = "LeetCode Solutions"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+
+[[tool.poetry.source]]
+name = "backup_pypi"
+url = "https://pypi.org/simple"
+priority = "primary"
+
+[tool.isort]
+profile = "black"
+known_third_party = []
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

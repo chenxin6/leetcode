@@ -9,9 +9,6 @@ class TreeNode:
 
 
 class Solution:
-    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
-        l = self.get_list(root)
-        return l[k - 1]
 
     def get_list(self, root: Optional[TreeNode]):
         res = []
@@ -33,3 +30,7 @@ class Solution:
             else:
                 res.append(temp_value)
         return res
+
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        l = self.get_list(root)
+        return l[k - 1]

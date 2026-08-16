@@ -5,7 +5,7 @@ repos:
       - id: autoflake
         args: [--remove-all-unused-imports, --remove-unused-variables, --expand-star-imports, --ignore-init-module-imports, -r, --in-place]
   - repo: https://github.com/pycqa/isort
-    rev: 5.13.2
+    rev: 6.0.1
     hooks:
       - id: isort
         name: isort (python)
@@ -14,3 +14,10 @@ repos:
     rev: 24.10.0
     hooks:
       - id: black
+  - repo: local
+    hooks:
+      - id: sort-class-methods
+        name: sort class methods by name
+        entry: python hook/sort_class_methods.py
+        language: system
+        files: \.py$

@@ -8,26 +8,6 @@ class ListNode:
 
 
 class Solution:
-    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
-        arr = self.my_method(lists)
-        n = len(arr)
-        root = ListNode(0)
-        temp_node = root
-        while n > 0 and isinstance(arr[0], ListNode):
-            temp_node.next = ListNode(arr[0].val)
-            temp_node = temp_node.next
-            arr[0] = arr[0].next
-            self.adjust(arr, 0, n)
-        return root.next
-
-    def my_method(self, lists: List[Optional[ListNode]]) -> List[Optional[ListNode]]:
-        arr = []
-        for node in lists:
-            arr.append(node)
-        n = len(arr)
-        for i in range(n // 2, n):
-            self.adjust(arr, n - i - 1, n)
-        return arr
 
     def adjust(self, arr, i, n):
         father_value = None
@@ -53,13 +33,34 @@ class Solution:
                 i = child
         arr[i] = father_value
 
+    def get_left_child(self, i):
+        return 2 * i + 1
+
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        arr = self.my_method(lists)
+        n = len(arr)
+        root = ListNode(0)
+        temp_node = root
+        while n > 0 and isinstance(arr[0], ListNode):
+            temp_node.next = ListNode(arr[0].val)
+            temp_node = temp_node.next
+            arr[0] = arr[0].next
+            self.adjust(arr, 0, n)
+        return root.next
+
+    def my_method(self, lists: List[Optional[ListNode]]) -> List[Optional[ListNode]]:
+        arr = []
+        for node in lists:
+            arr.append(node)
+        n = len(arr)
+        for i in range(n // 2, n):
+            self.adjust(arr, n - i - 1, n)
+        return arr
+
     def swap(self, arr, i, j):
         temp = arr[i]
         arr[i] = arr[j]
         arr[j] = temp
-
-    def get_left_child(self, i):
-        return 2 * i + 1
 
 
 s = Solution()

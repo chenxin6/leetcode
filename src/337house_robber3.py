@@ -12,9 +12,6 @@ class TreeNode:
 class Solution:
     db = {}
 
-    def rob(self, root: Optional[TreeNode]) -> int:
-        return self.my_method(root, True)
-
     def my_method(self, root: Optional[TreeNode], can_rob: bool) -> int:
         if root is None:
             return 0
@@ -32,6 +29,9 @@ class Solution:
         res = max(res, temp_res)
         self.db[key] = res
         return res
+
+    def rob(self, root: Optional[TreeNode]) -> int:
+        return self.my_method(root, True)
 
 
 s = Solution()

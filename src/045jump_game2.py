@@ -2,6 +2,10 @@ from typing import List
 
 
 class Solution:
+
+    def get_min(self, a, b) -> int:
+        return a if a <= b else b
+
     def maxArea(self, height: List[int]) -> int:
         start = 0
         end = len(height) - 1
@@ -15,9 +19,6 @@ class Solution:
             else:
                 end = end - 1
         return res
-
-    def get_min(self, a, b) -> int:
-        return a if a <= b else b
 
 
 def get_min_jump(dp, arr, index, last_max_reach):

@@ -12,14 +12,6 @@ class Solution:
                 res = n
         return res
 
-    def merge_sort(self, citations: List[int], left: int, right: int):
-        if left >= right:
-            return citations
-        mid = (left + right) // 2
-        self.merge_sort(citations, left, mid)
-        self.merge_sort(citations, mid + 1, right)
-        self.merge(citations, left, mid, right)
-
     def merge(self, citations: List[int], left: int, mid: int, right: int):
         i = left
         j = mid + 1
@@ -38,6 +30,14 @@ class Solution:
             temp_res.append(citations[j])
             j += 1
         citations[left : right + 1] = temp_res
+
+    def merge_sort(self, citations: List[int], left: int, right: int):
+        if left >= right:
+            return citations
+        mid = (left + right) // 2
+        self.merge_sort(citations, left, mid)
+        self.merge_sort(citations, mid + 1, right)
+        self.merge(citations, left, mid, right)
 
 
 def main():

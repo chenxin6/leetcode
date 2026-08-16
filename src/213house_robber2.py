@@ -2,12 +2,6 @@ from typing import List
 
 
 class Solution:
-    def rob(self, nums: List[int]) -> int:
-        db = {}
-        db2 = {}
-        res = nums[0] + self.my_method(nums[0 : len(nums) - 1], 1, False, db)
-        temp_res = self.my_method(nums, 1, True, db2)
-        return max(res, temp_res)
 
     def my_method(self, nums: List[int], index: int, can_rob: bool, db: dict) -> int:
         if index >= len(nums):
@@ -22,6 +16,13 @@ class Solution:
         res = max(res, temp_res)
         db[key] = res
         return res
+
+    def rob(self, nums: List[int]) -> int:
+        db = {}
+        db2 = {}
+        res = nums[0] + self.my_method(nums[0 : len(nums) - 1], 1, False, db)
+        temp_res = self.my_method(nums, 1, True, db2)
+        return max(res, temp_res)
 
 
 s = Solution()

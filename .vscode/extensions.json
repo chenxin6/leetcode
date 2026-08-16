@@ -10,7 +10,7 @@
         "mhutchie.git-graph",
         "donjayamanne.githistory",
         "eamodio.gitlens",
-        "github.copilot",
+        "github.copilot-chat",
         "yzane.markdown-pdf",
 		"ms-vscode-remote.remote-ssh"
 	]

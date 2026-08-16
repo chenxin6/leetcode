@@ -6,5 +6,6 @@
     "python.analysis.typeCheckingMode": "basic",
     "python.linting.flake8Args": ["--config=.flake8"],
     "terminal.integrated.inheritEnv": false,
+    "workbench.colorTheme": "Dark Modern",
     "workbench.editor.wrapTabs": true
 }
