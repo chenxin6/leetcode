@@ -1,1 +1,2 @@
-print(min(1, 2))
+for i in range(5, 3, -1):
+    print(i)

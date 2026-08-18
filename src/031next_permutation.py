@@ -6,8 +6,12 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        # 3 2 1
-        # 1 3 2
+        # [1, 2, 3]
+        # [1, 3, 2]
+        # [2, 1, 3]
+        # [2, 3, 1]
+        # [3, 1, 2]
+        # [3, 2, 1]
         index = len(nums) - 1
         while index >= 0:
             if index == 0 or nums[index] > nums[index - 1]:
