@@ -2,49 +2,22 @@ from typing import List
 
 
 class Solution:
+    dp: list[int]
 
-    def get_min(self, a, b) -> int:
-        return a if a <= b else b
+    def jump(self, nums: List[int]) -> int:
+        self.dp = [-1 for _ in range(len(nums))]
+        return self.my_method(nums, 0)
 
-    def maxArea(self, height: List[int]) -> int:
-        start = 0
-        end = len(height) - 1
-        res = 0
-        while start < end:
-            temp_res = (end - start) * self.get_min(height[start], height[end])
-            if temp_res > res:
-                res = temp_res
-            if height[start] < height[end]:
-                start = start + 1
-            else:
-                end = end - 1
+    def my_method(self, nums: List[int], index: int) -> int:
+        if index >= len(nums) - 1:
+            return 0
+        if self.dp[index] != -1:
+            return self.dp[index]
+        res = 999999999
+        for i in range(1, nums[index] + 1):
+            res = min(res, 1 + self.my_method(nums, index + i))
+        self.dp[index] = res
         return res
 
 
-def get_min_jump(dp, arr, index, last_max_reach):
-    if index == len(arr) - 1:
-        return 0
-    if arr[index] + index >= len(arr) - 1:
-        return 1
-    if arr[index] == 0:
-        return 10001
-    if dp[index] != -1:
-        return dp[index]
-    res = 10001
-    max_reach = index + arr[index]
-    for i in range(last_max_reach + 1 - index, arr[index] + 1):
-        temp = 1 + get_min_jump(dp, arr, index + i, max_reach)
-        if temp < res:
-            res = temp
-    dp[index] = res
-    return res
-
-
-def main():
-    arr = [2, 3, 1, 1, 4]
-    dp = [-1 for _ in range(len(arr))]
-    print(get_min_jump(dp, arr, 0, 0))
-
-
-if __name__ == "__main__":
-    main()
+print(Solution().jump([2, 3, 1, 1, 4]))
