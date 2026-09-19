@@ -46,6 +46,7 @@ pre-commit install --config ./.pre-commit-config.yaml
 
 - .vscode
     - extensions.json：vscode 插件的推荐配置
+    - launch.json：vscode python debugger 的配置
     - setting.json：vscode 项目的整体配置
 - hook：commit 的钩子脚本
 - interview：面试时的答题
