@@ -37,6 +37,39 @@ class Solution:
         return res
 
 
+class Solution2:
+    def maximalSquare(self, matrix: List[List[str]]) -> int:
+        m = len(matrix)
+        n = len(matrix[0])
+        dp = [[-1 for _ in range(n)] for _ in range(m)]
+        res = 0
+        for i in range(m):
+            for j in range(n):
+                temp_res = self.set_value(
+                    matrix,
+                    dp,
+                    i,
+                    j,
+                )
+                if temp_res > res:
+                    res = temp_res
+        return res * res
+
+    def set_value(
+        self, matrix: List[List[str]], dp: List[List[int]], i: int, j: int
+    ) -> int:
+        res = 1 if matrix[i][j] == "1" else 0
+        temp_min = 0
+        if res == 1 and i - 1 >= 0 and j - 1 >= 0:
+            temp_min = min(dp[i - 1][j], dp[i][j - 1])
+            if matrix[i - temp_min][j - temp_min] == "1":
+                res = temp_min + 1
+            else:
+                res = temp_min
+        dp[i][j] = res
+        return res
+
+
 input_matrix = [
     ["1", "0", "1", "0", "0"],
     ["1", "0", "1", "1", "1"],
