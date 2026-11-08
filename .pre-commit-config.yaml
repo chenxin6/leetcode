@@ -16,8 +16,7 @@ repos:
       - id: black
   - repo: local
     hooks:
-      - id: sort-class-methods
-        name: sort class methods by name
-        entry: python hook/sort_class_methods.py
+      - id: check_code_style
+        name: check code style
+        entry: rbm_tools check_code_style
         language: system
-        files: \.py$

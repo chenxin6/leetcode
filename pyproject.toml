@@ -1,19 +1,22 @@
 [tool.poetry]
 name = "leetcode"
 version = "0.0.0"
-description = "LeetCode Solutions"
+description = ""
+readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.13"
+rbm_tools = "^0.0.6"
+
+[[tool.poetry.source]]
+name = "aliyun_pypi"
+url = "https://mirrors.aliyun.com/pypi/simple"
+priority = "primary"
 
 [[tool.poetry.source]]
 name = "backup_pypi"
 url = "https://pypi.org/simple"
-priority = "primary"
-
-[tool.isort]
-profile = "black"
-known_third_party = []
+priority = "supplemental"
 
 [build-system]
 requires = ["poetry-core"]
